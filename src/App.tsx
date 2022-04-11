@@ -18,7 +18,7 @@ const AppContainer = styled.div`
 
 const WelcomeText = styled.h1`
   margin: 0;
-  color: #8e44ad;
+  color: #f5f5f5;
 `;
 
 const MainContainer = styled.div`
@@ -37,7 +37,8 @@ function App() {
 
   const connectSocket = async () => {
     const socket = await socketService
-      .connect("http://localhost:9000")
+      .connect("http://localhost:9000") // ? Local URL
+      // .connect("https://tictactoe-server.herokuapp.com/") // ? Prod URL
       .catch((err) => {
         console.log("Error: ", err);
       });
@@ -61,7 +62,7 @@ function App() {
   return (
     <GameContext.Provider value={gameContextValue}>
       <AppContainer>
-        <WelcomeText>Welcome to Tic-Tac-Toe</WelcomeText>
+        <WelcomeText>Tic-Tac-Toe</WelcomeText>
         <MainContainer>
           {!isInRoom && <JoinRoom />}
           {isInRoom && <Game />}
