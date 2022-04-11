@@ -1,12 +1,12 @@
 import { io, Socket } from "socket.io-client";
-import { DefaultEventsMap } from "socket.io-client/build/typed-events";
+// import { DefaultEventsMap } from "socket.io-client/lib/socket";
 
 class SocketService {
   public socket: Socket | null = null;
 
   public connect(
     url: string
-  ): Promise<Socket<DefaultEventsMap, DefaultEventsMap>> {
+  ): Promise<Socket> {
     return new Promise((rs, rj) => {
       this.socket = io(url);
 

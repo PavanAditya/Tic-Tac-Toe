@@ -17,19 +17,24 @@ const JoinRoomContainer = styled.div`
 `;
 
 const RoomIdInput = styled.input`
-  height: 30px;
-  width: 20em;
+  height: 50px;
+  width: 25em;
   font-size: 17px;
   outline: none;
-  border: 1px solid #8e44ad;
-  border-radius: 3px;
+  border: 2px solid #f5f5f5a5;
+  border-radius: 10px;
   padding: 0 10px;
+  transition: all ease 0.5s;
+  &:hover {
+    height: 55px;
+    width: 27em;
+  }
 `;
 
 const JoinButton = styled.button`
   outline: none;
-  background-color: #8e44ad;
-  color: #fff;
+  background-color: #f5f5f5;
+  color: black;
   font-size: 17px;
   border: 2px solid transparent;
   border-radius: 5px;
@@ -40,8 +45,8 @@ const JoinButton = styled.button`
 
   &:hover {
     background-color: transparent;
-    border: 2px solid #8e44ad;
-    color: #8e44ad;
+    border: 2px solid #f5f5f5;
+    color: #f5f5f5;
   }
 `;
 
@@ -78,14 +83,14 @@ export function JoinRoom(props: IJoinRoomProps) {
   return (
     <form onSubmit={joinRoom}>
       <JoinRoomContainer>
-        <h4>Enter Room ID to Join the Game</h4>
+        <h4 style={{color:'#f5f5f5'}}>Enter Room ID to Join the Game</h4>
         <RoomIdInput
           placeholder="Room ID"
           value={roomName}
           onChange={handleRoomNameChange}
         />
         <JoinButton type="submit" disabled={isJoining}>
-          {isJoining ? "Joining..." : "Joing"}
+          {isJoining ? "Joining..." : "Join"}
         </JoinButton>
       </JoinRoomContainer>
     </form>
