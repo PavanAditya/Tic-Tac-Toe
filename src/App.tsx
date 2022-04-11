@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "./App.css";
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 import socketService from "./services/socket-service";
 import { JoinRoom } from "./components/join-room";
 import GameContext, { IGameContextProps } from "./gameContext";
@@ -37,11 +37,12 @@ function App() {
 
   const connectSocket = async () => {
     const socket = await socketService
-      .connect("http://localhost:9000") // ? Local URL
-      // .connect("https://tictactoe-server.herokuapp.com/") // ? Prod URL
+      // .connect("http://localhost:9000") // ? Local URL
+      .connect("https://tic-tac-toe-socket-server.herokuapp.com/") // ? Prod URL
       .catch((err) => {
         console.log("Error: ", err);
       });
+    console.log(socket);
   };
 
   useEffect(() => {

@@ -55,7 +55,7 @@ export function JoinRoom(props: IJoinRoomProps) {
   const [isJoining, setJoining] = useState(false);
 
   const { setInRoom, isInRoom } = useContext(gameContext);
-
+  console.log(isInRoom);
   const handleRoomNameChange = (e: React.ChangeEvent<any>) => {
     const value = e.target.value;
     setRoomName(value);
@@ -86,6 +86,7 @@ export function JoinRoom(props: IJoinRoomProps) {
         <h4 style={{color:'#f5f5f5'}}>Enter Room ID to Join the Game</h4>
         <RoomIdInput
           placeholder="Room ID"
+          style={{color:'#f5f5f5'}}
           value={roomName}
           onChange={handleRoomNameChange}
         />

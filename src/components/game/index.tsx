@@ -29,7 +29,6 @@ const Cell = styled.div<ICellProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 20px;
   cursor: pointer;
   border-top: ${({ borderTop }) => borderTop && "3px solid #f5f5f5"};
   border-left: ${({ borderLeft }) => borderLeft && "3px solid #f5f5f5"};
@@ -192,7 +191,7 @@ export function Game() {
     handleGameUpdate();
     handleGameStart();
     handleGameWin();
-  }, []);
+  });
 
   return (
     <GameContainer>
